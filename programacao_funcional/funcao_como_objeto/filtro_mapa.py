@@ -1,3 +1,4 @@
+import operator
 alunos=[('Renzo', 0), ('Luciano', 10), ('Ada', 9)]
 
 print ('filter com list comprehension')
@@ -19,3 +20,8 @@ def extrair_nome(aluno):
 
 print('map')
 print(list(map(extrair_nome, filter(possui_nota_maior_que_5, alunos))))
+
+# utilizando o operator para, fazer a mesma coisa que a funcao, extrair_nome
+print('')
+print('operator')
+print(list(map(operator.itemgetter(0), filter(possui_nota_maior_que_5, alunos))))
