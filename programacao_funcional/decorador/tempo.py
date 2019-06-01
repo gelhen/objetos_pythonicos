@@ -1,6 +1,8 @@
+from functools import wraps
 from time import sleep, strftime
 
 def logar(f):
+    @wraps(f)
     def executar_com_tempo(*arg, **kwargs):
         print(strftime('%H:%M:%S'))
         return f(*arg, **kwargs)
@@ -18,7 +20,9 @@ def ola(nome):
 
 if __name__ == '__main__':
     print(mochileiro())
+    print(mochileiro.__name__)
     print(ola('André'))
+    print(ola.__name__)
     sleep(1)
     print(mochileiro())
     print(ola('Liciano'))
